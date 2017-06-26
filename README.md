@@ -24,3 +24,29 @@ $ ionic cordova run ios
 
 Substitute ios for android if not on a Mac.
 
+``` update package.json, 
+npm i -g npm-check-updates
+npm-check-updates -u or ncu -u ,  ncu -a is just dry run
+npm install
+``` generate new page called place
+ionic  generate page place
+
+
+``` install native google map
+ionic cordova plugin add cordova-plugin-geolocation
+npm install --save @ionic-native/geolocation
+
+npm install --save angular2-google-maps
+
+``` deploy to android
+http://ionicframework.com/docs/intro/deploying/
+
+keytool -genkey -v -keystore my-release-key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias my-alias
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key
+.jks  /home/yw/ionic2/my-places/platforms/android/build/outputs/apk/android-release-unsigned.apk  my-alias
+
+```
+what is different 
+// IonicStorageModule.forRoot(MyApp)
+    IonicStorageModule.forRoot()
